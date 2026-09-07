@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+.env
+.nexploy/
+*.tgz
+*.tsbuildinfo
+dist/
+node_modules/
+workspace/

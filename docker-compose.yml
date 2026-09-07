@@ -1,0 +1,13 @@
+services:
+  agent:
+    image: nexploy/agent:latest
+    container_name: nexploy-agent
+    restart: unless-stopped
+    environment:
+      NEXPLOY_URL: ${NEXPLOY_URL}
+      NEXPLOY_AGENT_TOKEN: ${NEXPLOY_AGENT_TOKEN}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '127.0.0.1:9091:9091'

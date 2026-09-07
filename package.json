@@ -1,0 +1,56 @@
+{
+  "name": "@nexploy/agent",
+  "version": "0.1.0",
+  "description": "Nexploy agent \u2014 bridges a remote Docker daemon to a Nexploy instance over an outbound tunnel, with no inbound port and no Docker socket exposed on the network.",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nexploy/agent.git"
+  },
+  "homepage": "https://github.com/Nexploy/agent#readme",
+  "bugs": {
+    "url": "https://github.com/Nexploy/agent/issues"
+  },
+  "keywords": [
+    "nexploy",
+    "docker",
+    "agent",
+    "tunnel",
+    "deployment"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "nexploy-agent": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "format": "biome format --write .",
+    "check": "biome check --write .",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "pino": "^10.1.0",
+    "pino-pretty": "^13.1.3",
+    "ws": "^8.20.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.6",
+    "@types/node": "^24.7.2",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.20.6",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b"
+}
