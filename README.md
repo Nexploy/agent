@@ -22,6 +22,19 @@ terminals), log streaming, image builds and `docker compose`.
 
 See [PROTOCOL.md](PROTOCOL.md) for the wire format.
 
+## Protocol package
+
+This repository owns the tunnel protocol, and publishes it so the server side never has to
+duplicate it:
+
+```ts
+import { MuxSession, AGENT_WS_PATH, decodeAgentSystemInfo } from '@nexploy/agent/protocol';
+```
+
+Nexploy imports that subpath to authenticate the tunnel and multiplex the Docker API over it. Any
+change to the framing, the flow control or the handshake headers is a change to this package, and
+both sides must move together.
+
 ## Install
 
 ```bash

@@ -24,9 +24,7 @@ export function decodeAgentSystemInfo(header: string | undefined): AgentSystemIn
     if (!header || header.length > MAX_SYSTEM_HEADER_BYTES) return {};
 
     try {
-        const parsed = agentSystemInfoSchema.safeParse(
-            JSON.parse(Buffer.from(header, 'base64url').toString('utf8')),
-        );
+        const parsed = agentSystemInfoSchema.safeParse(JSON.parse(Buffer.from(header, 'base64url').toString('utf8')));
 
         return parsed.success ? parsed.data : {};
     } catch {
