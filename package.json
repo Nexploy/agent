@@ -1,6 +1,6 @@
 {
   "name": "@nexploy/agent",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Nexploy agent \u2014 bridges a remote Docker daemon to a Nexploy instance over an outbound tunnel, with no inbound port and no Docker socket exposed on the network.",
   "license": "GPL-3.0",
   "repository": {
